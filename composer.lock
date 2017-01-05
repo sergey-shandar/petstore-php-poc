@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sergey-shandar/restapi-core-php-poc.git",
-                "reference": "ab183c70ecd7e9ad7700d23bb57d523e6e39be66"
+                "reference": "c9d47931c5ed97f83312a56d9781f2488b981630"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sergey-shandar/restapi-core-php-poc/zipball/ab183c70ecd7e9ad7700d23bb57d523e6e39be66",
-                "reference": "ab183c70ecd7e9ad7700d23bb57d523e6e39be66",
+                "url": "https://api.github.com/repos/sergey-shandar/restapi-core-php-poc/zipball/c9d47931c5ed97f83312a56d9781f2488b981630",
+                "reference": "c9d47931c5ed97f83312a56d9781f2488b981630",
                 "shasum": ""
             },
             "require": {
@@ -37,7 +37,7 @@
                 "Apache-2.0"
             ],
             "description": "REST API Core for PHP (Proof of concept)",
-            "time": "2017-01-05 01:53:49"
+            "time": "2017-01-05 21:04:19"
         }
     ],
     "packages-dev": [
