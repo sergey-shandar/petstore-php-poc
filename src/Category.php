@@ -17,7 +17,7 @@ class Category
      * @param int|null $id
      * @param string|null $name
      */
-    public function __constructor($id = null, $name = null)
+    public function __construct($id = null, $name = null)
     {
         $this->id = $id;
         $this->name = $name;

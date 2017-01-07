@@ -41,7 +41,7 @@ class Order
      * @param string|null $status
      * @param bool|null $complete
      */
-    public function __constructor($id = null, $petId = null, $quantity = null, $shipDate = null, $status = null, $complete = null)
+    public function __construct($id = null, $petId = null, $quantity = null, $shipDate = null, $status = null, $complete = null)
     {
         $this->id = $id;
         $this->petId = $petId;

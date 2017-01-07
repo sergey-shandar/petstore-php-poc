@@ -12,7 +12,7 @@ class SwaggerPetstore
     /**
      * @param RestApiCore\Client $client
      */
-    public function __constructor(RestApiCore\Client $client)
+    public function __construct(RestApiCore\Client $client)
     {
         $this->_client = $client;
     }
@@ -22,7 +22,7 @@ class SwaggerPetstore
      */
     public function addPetUsingByteArray($body)
     {
-        $this->_client->request(null, '/pet', 'Post', [], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet', 'Post', [], [], [], $body);
     }
 
     /**
@@ -30,7 +30,7 @@ class SwaggerPetstore
      */
     public function addPet(Pet $body)
     {
-        $this->_client->request(null, '/pet', 'Post', [], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet', 'Post', [], [], [], $body);
     }
 
     /**
@@ -38,7 +38,7 @@ class SwaggerPetstore
      */
     public function updatePet(Pet $body)
     {
-        $this->_client->request(null, '/pet', 'Put', [], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet', 'Put', [], [], [], $body);
     }
 
     /**
@@ -84,7 +84,7 @@ class SwaggerPetstore
      */
     public function updatePetWithForm($petId, $name, $status)
     {
-        $this->_client->request(null, '/pet/{petId}', 'Post', ['petId' => $petId], [], [], '');
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/{petId}', 'Post', ['petId' => $petId], [], [], '');
     }
 
     /**
@@ -93,7 +93,7 @@ class SwaggerPetstore
      */
     public function deletePet($apiKey, $petId)
     {
-        $this->_client->request(null, '/pet/{petId}', 'Delete', ['petId' => $petId], [], ['apiKey' => $apiKey], '');
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/{petId}', 'Delete', ['petId' => $petId], [], ['apiKey' => $apiKey], '');
     }
 
     /**
@@ -103,7 +103,7 @@ class SwaggerPetstore
      */
     public function uploadFile($petId, $additionalMetadata, $file)
     {
-        $this->_client->request(null, '/pet/{petId}/uploadImage', 'Post', ['petId' => $petId], [], [], '');
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/{petId}/uploadImage', 'Post', ['petId' => $petId], [], [], '');
     }
 
     /**
@@ -137,7 +137,7 @@ class SwaggerPetstore
      */
     public function deleteOrder($orderId)
     {
-        $this->_client->request(null, '/store/order/{orderId}', 'Delete', ['orderId' => $orderId], [], [], '');
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/store/order/{orderId}', 'Delete', ['orderId' => $orderId], [], [], '');
     }
 
     /**
@@ -145,7 +145,7 @@ class SwaggerPetstore
      */
     public function createUser(User $body)
     {
-        $this->_client->request(null, '/user', 'Post', [], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user', 'Post', [], [], [], $body);
     }
 
     /**
@@ -153,7 +153,7 @@ class SwaggerPetstore
      */
     public function createUsersWithArrayInput(array $body)
     {
-        $this->_client->request(null, '/user/createWithArray', 'Post', [], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/createWithArray', 'Post', [], [], [], $body);
     }
 
     /**
@@ -161,7 +161,7 @@ class SwaggerPetstore
      */
     public function createUsersWithListInput(array $body)
     {
-        $this->_client->request(null, '/user/createWithList', 'Post', [], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/createWithList', 'Post', [], [], [], $body);
     }
 
     /**
@@ -178,7 +178,7 @@ class SwaggerPetstore
      */
     public function logoutUser()
     {
-        $this->_client->request(null, '/user/logout', 'Get', [], [], [], '');
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/logout', 'Get', [], [], [], '');
     }
 
     /**
@@ -196,7 +196,7 @@ class SwaggerPetstore
      */
     public function updateUser($username, User $body)
     {
-        $this->_client->request(null, '/user/{username}', 'Put', ['username' => $username], [], [], $body);
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/{username}', 'Put', ['username' => $username], [], [], $body);
     }
 
     /**
@@ -204,6 +204,6 @@ class SwaggerPetstore
      */
     public function deleteUser($username)
     {
-        $this->_client->request(null, '/user/{username}', 'Delete', ['username' => $username], [], [], '');
+        $this->_client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/{username}', 'Delete', ['username' => $username], [], [], '');
     }
 }

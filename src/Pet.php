@@ -41,7 +41,7 @@ class Pet
      * @param Tag[]|null $tags
      * @param string|null $status
      */
-    public function __constructor($id = null, Category $category = null, $name = null, array $photoUrls = null, array $tags = null, $status = null)
+    public function __construct($id = null, Category $category = null, $name = null, array $photoUrls = null, array $tags = null, $status = null)
     {
         $this->id = $id;
         $this->category = $category;

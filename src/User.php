@@ -53,7 +53,7 @@ class User
      * @param string|null $phone
      * @param int|null $userStatus
      */
-    public function __constructor($id = null, $username = null, $firstName = null, $lastName = null, $email = null, $password = null, $phone = null, $userStatus = null)
+    public function __construct($id = null, $username = null, $firstName = null, $lastName = null, $email = null, $password = null, $phone = null, $userStatus = null)
     {
         $this->id = $id;
         $this->username = $username;
