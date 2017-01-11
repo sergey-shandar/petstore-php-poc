@@ -35,6 +35,66 @@ class Order
 
     /**
      * @param int|null $id
+     * @return self
+     */
+    public function id($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @param int|null $petId
+     * @return self
+     */
+    public function petId($petId)
+    {
+        $this->petId = $petId;
+        return $this;
+    }
+
+    /**
+     * @param int|null $quantity
+     * @return self
+     */
+    public function quantity($quantity)
+    {
+        $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
+     * @param string|null $shipDate
+     * @return self
+     */
+    public function shipDate($shipDate)
+    {
+        $this->shipDate = $shipDate;
+        return $this;
+    }
+
+    /**
+     * @param string|null $status
+     * @return self
+     */
+    public function status($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @param bool|null $complete
+     * @return self
+     */
+    public function complete($complete)
+    {
+        $this->complete = $complete;
+        return $this;
+    }
+
+    /**
+     * @param int|null $id
      * @param int|null $petId
      * @param int|null $quantity
      * @param string|null $shipDate
@@ -56,5 +116,19 @@ class Order
     public static function createClassInfo()
     {
         return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('petId', 'petId', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('quantity', 'quantity', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('shipDate', 'shipDate', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('status', 'status', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('complete', 'complete', RestApiCore\PrimitiveTypeInfo::create())]);
+    }
+
+    /**
+     * @param int|null $id
+     * @param int|null $petId
+     * @param int|null $quantity
+     * @param string|null $shipDate
+     * @param string|null $status
+     * @param bool|null $complete
+     * @return self
+     */
+    public static function create($id = null, $petId = null, $quantity = null, $shipDate = null, $status = null, $complete = null)
+    {
+        return new self($id, $petId, $quantity, $shipDate, $status, $complete);
     }
 }

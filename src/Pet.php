@@ -35,6 +35,66 @@ class Pet
 
     /**
      * @param int|null $id
+     * @return self
+     */
+    public function id($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @param Category|null $category
+     * @return self
+     */
+    public function category(Category $category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return self
+     */
+    public function name($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @param string[] $photoUrls
+     * @return self
+     */
+    public function photoUrls(array $photoUrls)
+    {
+        $this->photoUrls = $photoUrls;
+        return $this;
+    }
+
+    /**
+     * @param Tag[]|null $tags
+     * @return self
+     */
+    public function tags(array $tags)
+    {
+        $this->tags = $tags;
+        return $this;
+    }
+
+    /**
+     * @param string|null $status
+     * @return self
+     */
+    public function status($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @param int|null $id
      * @param Category|null $category
      * @param string|null $name
      * @param string[]|null $photoUrls
@@ -56,5 +116,19 @@ class Pet
     public static function createClassInfo()
     {
         return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('category', 'category', Category::createClassInfo()), new RestApiCore\PropertyInfo('name', 'name', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('photoUrls', 'photoUrls', RestApiCore\PrimitiveTypeInfo::create()->createArray()), new RestApiCore\PropertyInfo('tags', 'tags', Tag::createClassInfo()->createArray()), new RestApiCore\PropertyInfo('status', 'status', RestApiCore\PrimitiveTypeInfo::create())]);
+    }
+
+    /**
+     * @param int|null $id
+     * @param Category|null $category
+     * @param string|null $name
+     * @param string[]|null $photoUrls
+     * @param Tag[]|null $tags
+     * @param string|null $status
+     * @return self
+     */
+    public static function create($id = null, Category $category = null, $name = null, array $photoUrls = null, array $tags = null, $status = null)
+    {
+        return new self($id, $category, $name, $photoUrls, $tags, $status);
     }
 }

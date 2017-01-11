@@ -20,6 +20,15 @@ class E2ETest extends TestCase
 
         $petstore->createUsersWithListInput([new User()]);
 
-        $petstore->deleteOrder("an order");
+        // 404
+        // $petstore->deleteOrder("1");
+
+        // 404
+        // $petstore->deletePet("asd", 5);
+
+        // 404
+        // $petstore->deleteUser("user");
+
+        $pets = $petstore->findPetsByStatus([ "sold" ]);
     }
 }
