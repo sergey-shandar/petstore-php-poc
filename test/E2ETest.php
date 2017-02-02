@@ -1,14 +1,15 @@
 <?php
 
+use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
-use RestApiCore\Client;
+use RestApiCore\ApiClient;
 
-class E2ETest extends TestCase
+final class E2ETest extends TestCase
 {
     function test()
     {
-        $httpClient = new GuzzleHttp\Client();
-        $client = new Client($httpClient, 'http://petstore.swagger.io/v2');
+        $httpClient = new Client();
+        $client = new ApiClient($httpClient, 'http://petstore.swagger.io/v2');
         $petstore = new SwaggerPetstore($client);
 
         $petstore->addPet(new Pet(10, new Category(5, "dogs"), 'pet name', [], [], 'alive'));

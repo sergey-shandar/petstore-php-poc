@@ -4,7 +4,7 @@
 class Category
 {
     /**
-     * @var int|null
+     * @var string|null
      */
     public $id;
 
@@ -14,7 +14,7 @@ class Category
     public $name;
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @return self
      */
     public function id($id)
@@ -34,7 +34,7 @@ class Category
     }
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @param string|null $name
      */
     public function __construct($id = null, $name = null)
@@ -47,11 +47,11 @@ class Category
      */
     public static function createClassInfo()
     {
-        return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('name', 'name', RestApiCore\PrimitiveTypeInfo::create())]);
+        return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\LongTypeInfo::create()), new RestApiCore\PropertyInfo('name', 'name', RestApiCore\PrimitiveTypeInfo::create())]);
     }
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @param string|null $name
      * @return self
      */

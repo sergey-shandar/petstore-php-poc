@@ -5,105 +5,174 @@
 class SwaggerPetstore
 {
     /**
-     * @var RestApiCore\Client
+     * @var RestApiCore\ApiClient
      */
-    private $client;
+    private $apiClient;
 
     /**
-     * @param RestApiCore\Client $client
+     * @param RestApiCore\ApiClient $apiClient
      */
-    public function __construct(RestApiCore\Client $client)
+    public function __construct(RestApiCore\ApiClient $apiClient)
     {
-        $this->client = $client;
+        $this->apiClient = $apiClient;
     }
 
     /**
-     * @param string $body Pet object in the form of byte array
+     * @param string|null $body Pet object in the form of byte array
      */
-    public function addPetUsingByteArray($body)
+    public function addPetUsingByteArray($body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet', 'Post', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param Pet $body Pet object that needs to be added to the store
+     * @param Pet|null $body Pet object that needs to be added to the store
      */
-    public function addPet(Pet $body)
+    public function addPet(Pet $body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet', 'Post', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param Pet $body Pet object that needs to be added to the store
+     * @param Pet|null $body Pet object that needs to be added to the store
      */
-    public function updatePet(Pet $body)
+    public function updatePet(Pet $body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet', 'Put', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet';
+        $apiRequest->method = 'Put';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param string[] $status Status values that need to be considered for filter
+     * @param string[]|null $status Status values that need to be considered for filter
      * @return Pet[]
      */
-    public function findPetsByStatus(array $status)
+    public function findPetsByStatus(array $status = null)
     {
-        return $this->client->request(Pet::createClassInfo()->createArray(), '/pet/findByStatus', 'Get', ['status' => $status], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet/findByStatus';
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = ['status' => $status];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(Pet::createClassInfo()->createArray(), $apiRequest);
     }
 
     /**
-     * @param string[] $tags Tags to filter by
+     * @param string[]|null $tags Tags to filter by
      * @return Pet[]
      */
-    public function findPetsByTags(array $tags)
+    public function findPetsByTags(array $tags = null)
     {
-        return $this->client->request(Pet::createClassInfo()->createArray(), '/pet/findByTags', 'Get', ['tags' => $tags], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet/findByTags';
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = ['tags' => $tags];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(Pet::createClassInfo()->createArray(), $apiRequest);
     }
 
     /**
-     * @param int $petId ID of pet that needs to be fetched
+     * @param string $petId ID of pet that needs to be fetched
      * @return string
      */
     public function findPetsWithByteArray($petId)
     {
-        return $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/' . $petId, 'Get', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet/' . $petId;
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param int $petId ID of pet that needs to be fetched
+     * @param string $petId ID of pet that needs to be fetched
      * @return Pet
      */
     public function getPetById($petId)
     {
-        return $this->client->request(Pet::createClassInfo(), '/pet/' . $petId, 'Get', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet/' . $petId;
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(Pet::createClassInfo(), $apiRequest);
     }
 
     /**
      * @param string $petId ID of pet that needs to be updated
-     * @param string $name Updated name of the pet
-     * @param string $status Updated status of the pet
+     * @param string|null $name Updated name of the pet
+     * @param string|null $status Updated status of the pet
      */
-    public function updatePetWithForm($petId, $name, $status)
+    public function updatePetWithForm($petId, $name = null, $status = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/' . $petId, 'Post', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet/' . $petId;
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/x-www-form-urlencoded';
+        $apiRequest->body = null;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param string $apiKey
-     * @param int $petId Pet id to delete
+     * @param string|null $apiKey
+     * @param string $petId Pet id to delete
      */
-    public function deletePet($apiKey, $petId)
+    public function deletePet($apiKey = null, $petId)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/' . $petId, 'Delete', [], ['apiKey' => $apiKey], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/pet/' . $petId;
+        $apiRequest->method = 'Delete';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = ['apiKey' => $apiKey];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param int $petId ID of pet to update
-     * @param string $additionalMetadata Additional data to pass to server
-     * @param string $file file to upload
+     * @param string $petId ID of pet to update
+     * @param string|null $additionalMetadata Additional data to pass to server
+     * @param string|null $file file to upload
      */
-    public function uploadFile($petId, $additionalMetadata, $file)
+    public function uploadFile($petId, $additionalMetadata = null, $file = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/pet/' . $petId . '/uploadImage', 'Post', [], [], '');
+        $apiRequest = new RestApiCore\ApiMultipartRequest();
+        $apiRequest->path = '/pet/' . $petId . '/uploadImage';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->formDataParameters = ['additionalMetadata' => $additionalMetadata, 'file' => $file];
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
@@ -111,16 +180,30 @@ class SwaggerPetstore
      */
     public function getInventory()
     {
-        return $this->client->request(RestApiCore\PrimitiveTypeInfo::create()->createArray(), '/store/inventory', 'Get', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/store/inventory';
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create()->createArray(), $apiRequest);
     }
 
     /**
-     * @param Order $body order placed for purchasing the pet
+     * @param Order|null $body order placed for purchasing the pet
      * @return Order
      */
-    public function placeOrder(Order $body)
+    public function placeOrder(Order $body = null)
     {
-        return $this->client->request(Order::createClassInfo(), '/store/order', 'Post', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/store/order';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        return $this->apiClient->request(Order::createClassInfo(), $apiRequest);
     }
 
     /**
@@ -129,7 +212,14 @@ class SwaggerPetstore
      */
     public function getOrderById($orderId)
     {
-        return $this->client->request(Order::createClassInfo(), '/store/order/' . $orderId, 'Get', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/store/order/' . $orderId;
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(Order::createClassInfo(), $apiRequest);
     }
 
     /**
@@ -137,48 +227,90 @@ class SwaggerPetstore
      */
     public function deleteOrder($orderId)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/store/order/' . $orderId, 'Delete', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/store/order/' . $orderId;
+        $apiRequest->method = 'Delete';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param User $body Created user object
+     * @param User|null $body Created user object
      */
-    public function createUser(User $body)
+    public function createUser(User $body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user', 'Post', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param User[] $body List of user object
+     * @param User[]|null $body List of user object
      */
-    public function createUsersWithArrayInput(array $body)
+    public function createUsersWithArrayInput(array $body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/createWithArray', 'Post', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/createWithArray';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param User[] $body List of user object
+     * @param User[]|null $body List of user object
      */
-    public function createUsersWithListInput(array $body)
+    public function createUsersWithListInput(array $body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/createWithList', 'Post', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/createWithList';
+        $apiRequest->method = 'Post';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
-     * @param string $username The user name for login
-     * @param string $password The password for login in clear text
+     * @param string|null $username The user name for login
+     * @param string|null $password The password for login in clear text
      * @return string
      */
-    public function loginUser($username, $password)
+    public function loginUser($username = null, $password = null)
     {
-        return $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/login', 'Get', ['username' => $username, 'password' => $password], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/login';
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = ['username' => $username, 'password' => $password];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
      */
     public function logoutUser()
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/logout', 'Get', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/logout';
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
@@ -187,16 +319,30 @@ class SwaggerPetstore
      */
     public function getUserByName($username)
     {
-        return $this->client->request(User::createClassInfo(), '/user/' . $username, 'Get', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/' . $username;
+        $apiRequest->method = 'Get';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        return $this->apiClient->request(User::createClassInfo(), $apiRequest);
     }
 
     /**
      * @param string $username name that need to be deleted
-     * @param User $body Updated user object
+     * @param User|null $body Updated user object
      */
-    public function updateUser($username, User $body)
+    public function updateUser($username, User $body = null)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/' . $username, 'Put', [], [], $body);
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/' . $username;
+        $apiRequest->method = 'Put';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = $body;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 
     /**
@@ -204,6 +350,13 @@ class SwaggerPetstore
      */
     public function deleteUser($username)
     {
-        $this->client->request(RestApiCore\PrimitiveTypeInfo::create(), '/user/' . $username, 'Delete', [], [], '');
+        $apiRequest = new RestApiCore\ApiJsonRequest();
+        $apiRequest->path = '/user/' . $username;
+        $apiRequest->method = 'Delete';
+        $apiRequest->queryParameters = [];
+        $apiRequest->headerParameters = [];
+        $apiRequest->contentType = 'application/json; charset=utf-8';
+        $apiRequest->body = null;
+        $this->apiClient->request(RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
     }
 }

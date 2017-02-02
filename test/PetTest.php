@@ -1,14 +1,15 @@
 <?php
 
+use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
-use RestApiCore\Client;
+use RestApiCore\ApiClient;
 
 class PetTest extends TestCase
 {
     public static function createPetStore()
     {
-        $httpClient = new GuzzleHttp\Client();
-        $client = new Client($httpClient, 'http://petstore.swagger.io/v2');
+        $httpClient = new Client();
+        $client = new ApiClient($httpClient, 'http://petstore.swagger.io/v2');
         return new SwaggerPetstore($client);
     }
 
@@ -44,10 +45,10 @@ class PetTest extends TestCase
         );
     }
 
-    public function testFindByStatus()
+    public function testFindPetsByStatus()
     {
         $pets = self::createPetStore()->findPetsByStatus(['available']);
-        // $this->assertTrue(count($pets) > 0);
+        $this->assertTrue(count($pets) > 0);
     }
 
     public function testFindByTags()
@@ -63,11 +64,23 @@ class PetTest extends TestCase
         $petStore->deletePet('', 42);
     }
 
-    public function testFindPetById()
+    public function testGetPetById()
     {
         $petStore = self::createPetStore();
-        $petStore->addPet(Pet::create()->id(425));
-        $pet = $petStore->getPetById(425);
-        $this->assertSame($pet->id, 425);
+        $petStore->addPet(Pet::create()->id('425'));
+        $pet = $petStore->getPetById('425');
+        $this->assertSame($pet->id, '425');
+    }
+
+    public function testUpdatePetWithForm()
+    {
+        $petStore = self::createPetStore();
+        $petStore->updatePetWithForm('425', 'lion', 'sold');
+    }
+
+    public function testUploadImage()
+    {
+        $petStore = self::createPetStore();
+        $petStore->uploadFile(425, 'aa', 'file');
     }
 }

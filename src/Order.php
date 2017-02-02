@@ -4,12 +4,12 @@
 class Order
 {
     /**
-     * @var int|null
+     * @var string|null
      */
     public $id;
 
     /**
-     * @var int|null
+     * @var string|null
      */
     public $petId;
 
@@ -19,7 +19,7 @@ class Order
     public $quantity;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      */
     public $shipDate;
 
@@ -34,7 +34,7 @@ class Order
     public $complete;
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @return self
      */
     public function id($id)
@@ -44,7 +44,7 @@ class Order
     }
 
     /**
-     * @param int|null $petId
+     * @param string|null $petId
      * @return self
      */
     public function petId($petId)
@@ -64,10 +64,10 @@ class Order
     }
 
     /**
-     * @param string|null $shipDate
+     * @param \DateTime|null $shipDate
      * @return self
      */
-    public function shipDate($shipDate)
+    public function shipDate(\DateTime $shipDate)
     {
         $this->shipDate = $shipDate;
         return $this;
@@ -94,14 +94,14 @@ class Order
     }
 
     /**
-     * @param int|null $id
-     * @param int|null $petId
+     * @param string|null $id
+     * @param string|null $petId
      * @param int|null $quantity
-     * @param string|null $shipDate
+     * @param \DateTime|null $shipDate
      * @param string|null $status
      * @param bool|null $complete
      */
-    public function __construct($id = null, $petId = null, $quantity = null, $shipDate = null, $status = null, $complete = null)
+    public function __construct($id = null, $petId = null, $quantity = null, \DateTime $shipDate = null, $status = null, $complete = null)
     {
         $this->id = $id;
         $this->petId = $petId;
@@ -115,19 +115,19 @@ class Order
      */
     public static function createClassInfo()
     {
-        return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('petId', 'petId', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('quantity', 'quantity', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('shipDate', 'shipDate', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('status', 'status', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('complete', 'complete', RestApiCore\PrimitiveTypeInfo::create())]);
+        return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\LongTypeInfo::create()), new RestApiCore\PropertyInfo('petId', 'petId', RestApiCore\LongTypeInfo::create()), new RestApiCore\PropertyInfo('quantity', 'quantity', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('shipDate', 'shipDate', RestApiCore\DateTimeTypeInfo::create()), new RestApiCore\PropertyInfo('status', 'status', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('complete', 'complete', RestApiCore\PrimitiveTypeInfo::create())]);
     }
 
     /**
-     * @param int|null $id
-     * @param int|null $petId
+     * @param string|null $id
+     * @param string|null $petId
      * @param int|null $quantity
-     * @param string|null $shipDate
+     * @param \DateTime|null $shipDate
      * @param string|null $status
      * @param bool|null $complete
      * @return self
      */
-    public static function create($id = null, $petId = null, $quantity = null, $shipDate = null, $status = null, $complete = null)
+    public static function create($id = null, $petId = null, $quantity = null, \DateTime $shipDate = null, $status = null, $complete = null)
     {
         return new self($id, $petId, $quantity, $shipDate, $status, $complete);
     }

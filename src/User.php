@@ -4,7 +4,7 @@
 class User
 {
     /**
-     * @var int|null
+     * @var string|null
      */
     public $id;
 
@@ -44,7 +44,7 @@ class User
     public $userStatus;
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @return self
      */
     public function id($id)
@@ -124,7 +124,7 @@ class User
     }
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @param string|null $username
      * @param string|null $firstName
      * @param string|null $lastName
@@ -149,11 +149,11 @@ class User
      */
     public static function createClassInfo()
     {
-        return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('username', 'username', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('firstName', 'firstName', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('lastName', 'lastName', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('email', 'email', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('password', 'password', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('phone', 'phone', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('userStatus', 'userStatus', RestApiCore\PrimitiveTypeInfo::create())]);
+        return new RestApiCore\ClassTypeInfo(self::class, [new RestApiCore\PropertyInfo('id', 'id', RestApiCore\LongTypeInfo::create()), new RestApiCore\PropertyInfo('username', 'username', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('firstName', 'firstName', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('lastName', 'lastName', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('email', 'email', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('password', 'password', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('phone', 'phone', RestApiCore\PrimitiveTypeInfo::create()), new RestApiCore\PropertyInfo('userStatus', 'userStatus', RestApiCore\PrimitiveTypeInfo::create())]);
     }
 
     /**
-     * @param int|null $id
+     * @param string|null $id
      * @param string|null $username
      * @param string|null $firstName
      * @param string|null $lastName
