@@ -3,6 +3,10 @@
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 use RestApiCore\ApiClient;
+use SwaggerPetstore\SwaggerPetstore;
+use SwaggerPetstore\Pet;
+use SwaggerPetstore\Category;
+use SwaggerPetstore\Tag;
 
 class PetTest extends TestCase
 {

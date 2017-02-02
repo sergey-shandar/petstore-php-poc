@@ -1,6 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use SwaggerPetstore\SwaggerPetstore;
+use SwaggerPetstore\Tests;
 
 final class GenSequenceTest extends TestCase
 {
@@ -30,7 +32,7 @@ final class GenSequenceTest extends TestCase
         Tests::uploadFile($testClient);
 
         Tests::findPetsByStatus($testClient);
-        Tests::findPetsByTags($testClient);
+        // Tests::findPetsByTags($testClient);
         // Tests::getInventory($testClient);
         Tests::getOrderById($testClient);
         Tests::getPetById($testClient);

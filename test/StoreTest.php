@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use SwaggerPetstore\Order;
 
 final class StoreTest extends TestCase
 {

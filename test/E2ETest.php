@@ -3,6 +3,10 @@
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 use RestApiCore\ApiClient;
+use SwaggerPetstore\SwaggerPetstore;
+use SwaggerPetstore\User;
+use SwaggerPetstore\Pet;
+use SwaggerPetstore\Category;
 
 final class E2ETest extends TestCase
 {
@@ -12,7 +16,7 @@ final class E2ETest extends TestCase
         $client = new ApiClient($httpClient, 'http://petstore.swagger.io/v2');
         $petstore = new SwaggerPetstore($client);
 
-        $petstore->addPet(new Pet(10, new Category(5, "dogs"), 'pet name', [], [], 'alive'));
+        $petstore->addPet(Pet::create(10, new Category(5, "dogs"), 'pet name', [], [], 'alive'));
 
         // $petstore->addPetUsingByteArray("[]");
         $petstore->createUser(new User(567));
