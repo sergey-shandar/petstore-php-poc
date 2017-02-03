@@ -117,7 +117,7 @@ class Order
      */
     public static function createClassInfo()
     {
-        return new \RestApiCore\ClassTypeInfo(self::class, [new \RestApiCore\PropertyInfo('id', 'id', \RestApiCore\LongTypeInfo::create()), new \RestApiCore\PropertyInfo('petId', 'petId', \RestApiCore\LongTypeInfo::create()), new \RestApiCore\PropertyInfo('quantity', 'quantity', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('shipDate', 'shipDate', \RestApiCore\DateTimeTypeInfo::create()), new \RestApiCore\PropertyInfo('status', 'status', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('complete', 'complete', \RestApiCore\PrimitiveTypeInfo::create())]);
+        return new \RestApiCore\Type\ClassType(self::class, [new \RestApiCore\PropertyInfo('id', 'id', \RestApiCore\Type\LongType::create()), new \RestApiCore\PropertyInfo('petId', 'petId', \RestApiCore\Type\LongType::create()), new \RestApiCore\PropertyInfo('quantity', 'quantity', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('shipDate', 'shipDate', \RestApiCore\Type\DateTimeType::create()), new \RestApiCore\PropertyInfo('status', 'status', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('complete', 'complete', \RestApiCore\Type\PrimitiveType::create())]);
     }
 
     /**

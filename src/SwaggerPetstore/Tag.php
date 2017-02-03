@@ -49,7 +49,7 @@ class Tag
      */
     public static function createClassInfo()
     {
-        return new \RestApiCore\ClassTypeInfo(self::class, [new \RestApiCore\PropertyInfo('id', 'id', \RestApiCore\LongTypeInfo::create()), new \RestApiCore\PropertyInfo('name', 'name', \RestApiCore\PrimitiveTypeInfo::create())]);
+        return new \RestApiCore\Type\ClassType(self::class, [new \RestApiCore\PropertyInfo('id', 'id', \RestApiCore\Type\LongType::create()), new \RestApiCore\PropertyInfo('name', 'name', \RestApiCore\Type\PrimitiveType::create())]);
     }
 
     /**

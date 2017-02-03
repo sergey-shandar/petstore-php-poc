@@ -24,14 +24,14 @@ class SwaggerPetstore
      */
     public function addPetUsingByteArray($body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -39,14 +39,14 @@ class SwaggerPetstore
      */
     public function addPet(Pet $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -54,14 +54,14 @@ class SwaggerPetstore
      */
     public function updatePet(Pet $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet';
         $apiRequest->method = 'Put';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -70,7 +70,7 @@ class SwaggerPetstore
      */
     public function findPetsByStatus(array $status = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet/findByStatus';
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['status' => $status];
@@ -86,7 +86,7 @@ class SwaggerPetstore
      */
     public function findPetsByTags(array $tags = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet/findByTags';
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['tags' => $tags];
@@ -102,14 +102,14 @@ class SwaggerPetstore
      */
     public function findPetsWithByteArray($petId)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet/' . $petId;
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        return $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        return $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -118,7 +118,7 @@ class SwaggerPetstore
      */
     public function getPetById($petId)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet/' . $petId;
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
@@ -135,14 +135,14 @@ class SwaggerPetstore
      */
     public function updatePetWithForm($petId, $name = null, $status = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet/' . $petId;
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/x-www-form-urlencoded';
         $apiRequest->body = null;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -151,14 +151,14 @@ class SwaggerPetstore
      */
     public function deletePet($apiKey = null, $petId)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/pet/' . $petId;
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = ['apiKey' => $apiKey];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -168,13 +168,13 @@ class SwaggerPetstore
      */
     public function uploadFile($petId, $additionalMetadata = null, $file = null)
     {
-        $apiRequest = new \RestApiCore\ApiMultipartRequest();
+        $apiRequest = new \RestApiCore\Request\MultipartRequest();
         $apiRequest->path = '/pet/' . $petId . '/uploadImage';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->formDataParameters = ['additionalMetadata' => $additionalMetadata, 'file' => $file];
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -182,14 +182,14 @@ class SwaggerPetstore
      */
     public function getInventory()
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/store/inventory';
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        return $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create()->createArray(), $apiRequest);
+        return $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create()->createArray(), $apiRequest);
     }
 
     /**
@@ -198,7 +198,7 @@ class SwaggerPetstore
      */
     public function placeOrder(Order $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/store/order';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
@@ -214,7 +214,7 @@ class SwaggerPetstore
      */
     public function getOrderById($orderId)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/store/order/' . $orderId;
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
@@ -229,14 +229,14 @@ class SwaggerPetstore
      */
     public function deleteOrder($orderId)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/store/order/' . $orderId;
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -244,14 +244,14 @@ class SwaggerPetstore
      */
     public function createUser(User $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -259,14 +259,14 @@ class SwaggerPetstore
      */
     public function createUsersWithArrayInput(array $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/createWithArray';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -274,14 +274,14 @@ class SwaggerPetstore
      */
     public function createUsersWithListInput(array $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/createWithList';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -291,28 +291,28 @@ class SwaggerPetstore
      */
     public function loginUser($username = null, $password = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/login';
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['username' => $username, 'password' => $password];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        return $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        return $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
      */
     public function logoutUser()
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/logout';
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -321,7 +321,7 @@ class SwaggerPetstore
      */
     public function getUserByName($username)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/' . $username;
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
@@ -337,14 +337,14 @@ class SwaggerPetstore
      */
     public function updateUser($username, User $body = null)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/' . $username;
         $apiRequest->method = 'Put';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
     /**
@@ -352,13 +352,13 @@ class SwaggerPetstore
      */
     public function deleteUser($username)
     {
-        $apiRequest = new \RestApiCore\ApiJsonRequest();
+        $apiRequest = new \RestApiCore\Request\JsonRequest();
         $apiRequest->path = '/user/' . $username;
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
         $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
-        $this->apiClient->request(\RestApiCore\PrimitiveTypeInfo::create(), $apiRequest);
+        $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 }

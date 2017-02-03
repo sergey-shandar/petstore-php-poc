@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use SwaggerPetstore\User;
 
 final class UserTest extends TestCase
 {

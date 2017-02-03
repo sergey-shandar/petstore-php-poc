@@ -12,7 +12,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $body = Pet::create()->id('421')->category(Category::create()->id('0')->name('string'))->name('doggie')->photoUrls(['string'])->tags([Tag::create()->id('0')->name('string')])->status('available');
-        $client->addPet($body);
+        $client->AddPet($body);
     }
 
     /**
@@ -22,7 +22,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $body = User::create()->id('0')->username('belkin')->firstName('string')->lastName('string')->email('string')->password('password')->phone('phone')->userStatus(0);
-        $client->createUser($body);
+        $client->CreateUser($body);
     }
 
     /**
@@ -32,7 +32,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $body = [User::create()->id('0')];
-        $client->createUsersWithArrayInput($body);
+        $client->CreateUsersWithArrayInput($body);
     }
 
     /**
@@ -42,7 +42,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $body = [User::create()->id('1')];
-        $client->createUsersWithListInput($body);
+        $client->CreateUsersWithListInput($body);
     }
 
     /**
@@ -52,7 +52,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $orderId = '42';
-        $client->deleteOrder($orderId);
+        $client->DeleteOrder($orderId);
     }
 
     /**
@@ -63,7 +63,7 @@ class Tests
         $client = new SwaggerPetstore($testClient->apiClient);
         $api_key = null;
         $petId = '421';
-        $client->deletePet($api_key, $petId);
+        $client->DeletePet($api_key, $petId);
     }
 
     /**
@@ -73,7 +73,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $username = 'belkin';
-        $client->deleteUser($username);
+        $client->DeleteUser($username);
     }
 
     /**
@@ -84,7 +84,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $status = ['sold'];
-        $result = $client->findPetsByStatus($status);
+        $result = $client->FindPetsByStatus($status);
         $testClient->assertSame([], $result);
         return $result;
     }
@@ -97,7 +97,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $tags = ['tag2'];
-        $result = $client->findPetsByTags($tags);
+        $result = $client->FindPetsByTags($tags);
         $testClient->assertSame([], $result);
         return $result;
     }
@@ -109,7 +109,7 @@ class Tests
     public static function getInventory(\RestApiCore\TestClient $testClient)
     {
         $client = new SwaggerPetstore($testClient->apiClient);
-        $result = $client->getInventory();
+        $result = $client->GetInventory();
         $testClient->assertSame([], $result);
         return $result;
     }
@@ -122,7 +122,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $orderId = '42';
-        $result = $client->getOrderById($orderId);
+        $result = $client->GetOrderById($orderId);
         $testClient->assertSame(Order::create()->id('42')->petId('0')->quantity(0)->shipDate(new \DateTime('2017-01-18T18:35:20.000Z'))->status('placed')->complete(FALSE), $result);
         return $result;
     }
@@ -135,7 +135,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $petId = '421';
-        $result = $client->getPetById($petId);
+        $result = $client->GetPetById($petId);
         $testClient->assertSame(Pet::create()->id('421')->category(Category::create()->id('0')->name('string'))->name('doggie')->photoUrls(['string'])->tags([Tag::create()->id('0')->name('string')])->status('available'), $result);
         return $result;
     }
@@ -148,7 +148,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $username = 'belkin';
-        $result = $client->getUserByName($username);
+        $result = $client->GetUserByName($username);
         $testClient->assertSame(User::create()->id('0')->username('belkin')->firstName('string')->lastName('string')->email('string')->password('password')->phone('phone')->userStatus(0), $result);
         return $result;
     }
@@ -162,7 +162,7 @@ class Tests
         $client = new SwaggerPetstore($testClient->apiClient);
         $username = 'someuser';
         $password = 'strongpassword';
-        $result = $client->loginUser($username, $password);
+        $result = $client->LoginUser($username, $password);
         $testClient->assertSame(null, $result);
         return $result;
     }
@@ -173,7 +173,7 @@ class Tests
     public static function logoutUser(\RestApiCore\TestClient $testClient)
     {
         $client = new SwaggerPetstore($testClient->apiClient);
-        $client->logoutUser();
+        $client->LogoutUser();
     }
 
     /**
@@ -184,7 +184,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $body = Order::create()->id('42')->petId('0')->quantity(0)->shipDate(new \DateTime('2017-01-18T18:23:32.708Z'))->status('placed')->complete(FALSE);
-        $result = $client->placeOrder($body);
+        $result = $client->PlaceOrder($body);
         $testClient->assertSame(Order::create()->id('42')->petId('0')->quantity(0)->shipDate(new \DateTime('2017-01-18T18:35:20.000Z'))->status('placed')->complete(FALSE), $result);
         return $result;
     }
@@ -196,7 +196,7 @@ class Tests
     {
         $client = new SwaggerPetstore($testClient->apiClient);
         $body = Pet::create()->id('0')->category(Category::create()->id('0')->name('string'))->name('doggie')->photoUrls(['string'])->tags([Tag::create()->id('0')->name('string')])->status('available');
-        $client->updatePet($body);
+        $client->UpdatePet($body);
     }
 
     /**
@@ -208,7 +208,7 @@ class Tests
         $petId = '425';
         $name = 'lion';
         $status = 'sold';
-        $client->updatePetWithForm($petId, $name, $status);
+        $client->UpdatePetWithForm($petId, $name, $status);
     }
 
     /**
@@ -219,7 +219,7 @@ class Tests
         $client = new SwaggerPetstore($testClient->apiClient);
         $username = 'belkin';
         $body = User::create();
-        $client->updateUser($username, $body);
+        $client->UpdateUser($username, $body);
     }
 
     /**
@@ -231,6 +231,6 @@ class Tests
         $petId = '42';
         $additionalMetadata = 'aaa';
         $file = 'file';
-        $client->uploadFile($petId, $additionalMetadata, $file);
+        $client->UploadFile($petId, $additionalMetadata, $file);
     }
 }

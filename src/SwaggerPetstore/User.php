@@ -151,7 +151,7 @@ class User
      */
     public static function createClassInfo()
     {
-        return new \RestApiCore\ClassTypeInfo(self::class, [new \RestApiCore\PropertyInfo('id', 'id', \RestApiCore\LongTypeInfo::create()), new \RestApiCore\PropertyInfo('username', 'username', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('firstName', 'firstName', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('lastName', 'lastName', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('email', 'email', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('password', 'password', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('phone', 'phone', \RestApiCore\PrimitiveTypeInfo::create()), new \RestApiCore\PropertyInfo('userStatus', 'userStatus', \RestApiCore\PrimitiveTypeInfo::create())]);
+        return new \RestApiCore\Type\ClassType(self::class, [new \RestApiCore\PropertyInfo('id', 'id', \RestApiCore\Type\LongType::create()), new \RestApiCore\PropertyInfo('username', 'username', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('firstName', 'firstName', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('lastName', 'lastName', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('email', 'email', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('password', 'password', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('phone', 'phone', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('userStatus', 'userStatus', \RestApiCore\Type\PrimitiveType::create())]);
     }
 
     /**

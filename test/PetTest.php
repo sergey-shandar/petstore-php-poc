@@ -55,11 +55,13 @@ class PetTest extends TestCase
         $this->assertTrue(count($pets) > 0);
     }
 
+    /* deprecated
     public function testFindByTags()
     {
         $pets = self::createPetStore()->findPetsByTags(['tag2']);
         // $this->assertTrue(count($pets) > 0);
     }
+    */
 
     public function testDelete()
     {
