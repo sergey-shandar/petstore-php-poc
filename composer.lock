@@ -233,12 +233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sergey-shandar/restapi-core-php-poc.git",
-                "reference": "2a28c0ee78b5a1b08e894934562d8740a091dcd5"
+                "reference": "65d0a12c21ea07da8ad3063643674ef22ece0500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sergey-shandar/restapi-core-php-poc/zipball/2a28c0ee78b5a1b08e894934562d8740a091dcd5",
-                "reference": "2a28c0ee78b5a1b08e894934562d8740a091dcd5",
+                "url": "https://api.github.com/repos/sergey-shandar/restapi-core-php-poc/zipball/65d0a12c21ea07da8ad3063643674ef22ece0500",
+                "reference": "65d0a12c21ea07da8ad3063643674ef22ece0500",
                 "shasum": ""
             },
             "require": {
@@ -259,7 +259,7 @@
                 "Apache-2.0"
             ],
             "description": "REST API Core for PHP (Proof of concept)",
-            "time": "2017-02-03 19:48:26"
+            "time": "2017-02-07 19:24:34"
         }
     ],
     "packages-dev": [
@@ -1468,16 +1468,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "50eadbd7926e31842893c957eca362b21592a97d"
+                "reference": "e1718c6bf57e1efbb8793ada951584b2ab27775b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/50eadbd7926e31842893c957eca362b21592a97d",
-                "reference": "50eadbd7926e31842893c957eca362b21592a97d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e1718c6bf57e1efbb8793ada951584b2ab27775b",
+                "reference": "e1718c6bf57e1efbb8793ada951584b2ab27775b",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-03T13:51:32+00:00"
+            "time": "2017-01-21T17:06:35+00:00"
         },
         {
             "name": "webmozart/assert",

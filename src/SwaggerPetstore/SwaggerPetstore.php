@@ -29,7 +29,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -44,7 +43,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -59,7 +57,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Put';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -75,7 +72,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['status' => $status];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(Pet::createClassInfo()->createArray(), $apiRequest);
     }
@@ -91,7 +87,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['tags' => $tags];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(Pet::createClassInfo()->createArray(), $apiRequest);
     }
@@ -107,7 +102,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -123,7 +117,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(Pet::createClassInfo(), $apiRequest);
     }
@@ -135,13 +128,12 @@ class SwaggerPetstore
      */
     public function updatePetWithForm($petId, $name = null, $status = null)
     {
-        $apiRequest = new \RestApiCore\Request\JsonRequest();
+        $apiRequest = new \RestApiCore\Request\FormRequest();
         $apiRequest->path = '/pet/' . $petId;
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/x-www-form-urlencoded';
-        $apiRequest->body = null;
+        $apiRequest->formParams = ['name' => $name, 'status' => $status];
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
@@ -156,7 +148,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = ['apiKey' => $apiKey];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -168,7 +159,7 @@ class SwaggerPetstore
      */
     public function uploadFile($petId, $additionalMetadata = null, $file = null)
     {
-        $apiRequest = new \RestApiCore\Request\MultipartRequest();
+        $apiRequest = new \RestApiCore\Request\MultiPartRequest();
         $apiRequest->path = '/pet/' . $petId . '/uploadImage';
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
@@ -187,7 +178,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create()->createArray(), $apiRequest);
     }
@@ -203,7 +193,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         return $this->apiClient->request(Order::createClassInfo(), $apiRequest);
     }
@@ -219,7 +208,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(Order::createClassInfo(), $apiRequest);
     }
@@ -234,7 +222,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -249,7 +236,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -264,7 +250,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -279,7 +264,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -296,7 +280,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['username' => $username, 'password' => $password];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -310,7 +293,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -326,7 +308,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(User::createClassInfo(), $apiRequest);
     }
@@ -342,7 +323,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Put';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $body;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -357,7 +337,6 @@ class SwaggerPetstore
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }

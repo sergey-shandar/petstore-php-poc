@@ -85,7 +85,7 @@ class Tests
         $client = new SwaggerPetstore($testClient->apiClient);
         $status = ['sold'];
         $result = $client->FindPetsByStatus($status);
-        $testClient->assertSame([], $result);
+        $testClient->assertSame([Pet::create()->id('421')->category(Category::create()->id('0')->name('string'))->name('lion')->photoUrls(['string'])->tags([Tag::create()->id('0')->name('string')])->status('sold')], $result);
         return $result;
     }
 
@@ -136,7 +136,7 @@ class Tests
         $client = new SwaggerPetstore($testClient->apiClient);
         $petId = '421';
         $result = $client->GetPetById($petId);
-        $testClient->assertSame(Pet::create()->id('421')->category(Category::create()->id('0')->name('string'))->name('doggie')->photoUrls(['string'])->tags([Tag::create()->id('0')->name('string')])->status('available'), $result);
+        $testClient->assertSame(Pet::create()->id('421')->category(Category::create()->id('0')->name('string'))->name('lion')->photoUrls(['string'])->tags([Tag::create()->id('0')->name('string')])->status('sold'), $result);
         return $result;
     }
 
@@ -205,7 +205,7 @@ class Tests
     public static function updatePetWithForm(\RestApiCore\TestClient $testClient)
     {
         $client = new SwaggerPetstore($testClient->apiClient);
-        $petId = '425';
+        $petId = '421';
         $name = 'lion';
         $status = 'sold';
         $client->UpdatePetWithForm($petId, $name, $status);
