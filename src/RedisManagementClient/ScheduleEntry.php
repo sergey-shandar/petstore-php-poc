@@ -16,7 +16,7 @@ class ScheduleEntry
     public $startHourUtc;
 
     /**
-     * @var string|null
+     * @var \DateInterval|null
      */
     public $maintenanceWindow;
 
@@ -41,10 +41,10 @@ class ScheduleEntry
     }
 
     /**
-     * @param string|null $maintenanceWindow
+     * @param \DateInterval|null $maintenanceWindow
      * @return self
      */
-    public function maintenanceWindow($maintenanceWindow)
+    public function maintenanceWindow(\DateInterval $maintenanceWindow)
     {
         $this->maintenanceWindow = $maintenanceWindow;
         return $this;
@@ -53,9 +53,9 @@ class ScheduleEntry
     /**
      * @param string|null $dayOfWeek
      * @param int|null $startHourUtc
-     * @param string|null $maintenanceWindow
+     * @param \DateInterval|null $maintenanceWindow
      */
-    public function __construct($dayOfWeek = null, $startHourUtc = null, $maintenanceWindow = null)
+    public function __construct($dayOfWeek = null, $startHourUtc = null, \DateInterval $maintenanceWindow = null)
     {
         $this->dayOfWeek = $dayOfWeek;
         $this->startHourUtc = $startHourUtc;
@@ -66,16 +66,16 @@ class ScheduleEntry
      */
     public static function createClassInfo()
     {
-        return new \RestApiCore\Type\ClassType(self::class, [new \RestApiCore\PropertyInfo('dayOfWeek', 'dayOfWeek', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('startHourUtc', 'startHourUtc', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('maintenanceWindow', 'maintenanceWindow', \RestApiCore\Type\PrimitiveType::create())]);
+        return new \RestApiCore\Type\ClassType(self::class, [new \RestApiCore\PropertyInfo('dayOfWeek', 'dayOfWeek', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('startHourUtc', 'startHourUtc', \RestApiCore\Type\PrimitiveType::create()), new \RestApiCore\PropertyInfo('maintenanceWindow', 'maintenanceWindow', \RestApiCore\Type\DateIntervalType::create())]);
     }
 
     /**
      * @param string|null $dayOfWeek
      * @param int|null $startHourUtc
-     * @param string|null $maintenanceWindow
+     * @param \DateInterval|null $maintenanceWindow
      * @return self
      */
-    public static function create($dayOfWeek = null, $startHourUtc = null, $maintenanceWindow = null)
+    public static function create($dayOfWeek = null, $startHourUtc = null, \DateInterval $maintenanceWindow = null)
     {
         return new self($dayOfWeek, $startHourUtc, $maintenanceWindow);
     }

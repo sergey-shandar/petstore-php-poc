@@ -147,11 +147,11 @@ class Tests
         $client = new RedisManagementClient($testClient->apiClient);
         $resourceGroupName = 'rg1';
         $name = 'cache1';
-        $parameters = RedisPatchSchedule::create()->properties(ScheduleEntries::create()->scheduleEntries([ScheduleEntry::create()->dayOfWeek('Monday')->startHourUtc(12), ScheduleEntry::create()->dayOfWeek('Tuesday')->startHourUtc(12)]));
+        $parameters = RedisPatchSchedule::create()->properties(ScheduleEntries::create()->scheduleEntries([ScheduleEntry::create()->dayOfWeek('Monday')->startHourUtc(12)->maintenanceWindow(new \DateInterval('PT3H')), ScheduleEntry::create()->dayOfWeek('Tuesday')->startHourUtc(12)]));
         $api_version = '2016-04-01';
         $subscriptionId = 'subid';
         $result = $client->patchSchedules->CreateOrUpdate($resourceGroupName, $name, $parameters, $api_version, $subscriptionId);
-        $testClient->assertSame(RedisPatchSchedule::create()->id('/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default')->name('default')->type('Microsoft.Cache/Redis/patchSchedules')->location('West US')->properties(ScheduleEntries::create()->scheduleEntries([ScheduleEntry::create()->dayOfWeek('Monday')->startHourUtc(12), ScheduleEntry::create()->dayOfWeek('Tuesday')->startHourUtc(12)])), $result);
+        $testClient->assertSame(RedisPatchSchedule::create()->id('/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default')->name('default')->type('Microsoft.Cache/Redis/patchSchedules')->location('West US')->properties(ScheduleEntries::create()->scheduleEntries([ScheduleEntry::create()->dayOfWeek('Monday')->startHourUtc(12)->maintenanceWindow(new \DateInterval('PT3H')), ScheduleEntry::create()->dayOfWeek('Tuesday')->startHourUtc(12)])), $result);
         return $result;
     }
 
@@ -180,7 +180,7 @@ class Tests
         $api_version = '2016-04-01';
         $subscriptionId = 'subid';
         $result = $client->patchSchedules->Get($resourceGroupName, $name, $api_version, $subscriptionId);
-        $testClient->assertSame(RedisPatchSchedule::create()->id('/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default')->name('default')->type('Microsoft.Cache/Redis/patchSchedules')->location('West US')->properties(ScheduleEntries::create()->scheduleEntries([ScheduleEntry::create()->dayOfWeek('Monday')->startHourUtc(12), ScheduleEntry::create()->dayOfWeek('Tuesday')->startHourUtc(12)])), $result);
+        $testClient->assertSame(RedisPatchSchedule::create()->id('/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default')->name('default')->type('Microsoft.Cache/Redis/patchSchedules')->location('West US')->properties(ScheduleEntries::create()->scheduleEntries([ScheduleEntry::create()->dayOfWeek('Monday')->startHourUtc(12)->maintenanceWindow(new \DateInterval('PT3H')), ScheduleEntry::create()->dayOfWeek('Tuesday')->startHourUtc(12)])), $result);
         return $result;
     }
 

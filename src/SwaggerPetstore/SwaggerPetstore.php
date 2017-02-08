@@ -133,7 +133,7 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->formParams = ['name' => $name, 'status' => $status];
+        $apiRequest->parameters = ['name' => $name, 'status' => $status];
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 
@@ -164,7 +164,7 @@ class SwaggerPetstore
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = [];
         $apiRequest->headerParameters = [];
-        $apiRequest->formDataParameters = ['additionalMetadata' => $additionalMetadata, 'file' => $file];
+        $apiRequest->parameters = ['additionalMetadata' => $additionalMetadata, 'file' => $file];
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
 

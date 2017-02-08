@@ -33,7 +33,6 @@ class PatchSchedules
         $apiRequest->method = 'Put';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         return $this->apiClient->request(RedisPatchSchedule::createClassInfo(), $apiRequest);
     }
@@ -51,7 +50,6 @@ class PatchSchedules
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -70,7 +68,6 @@ class PatchSchedules
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(RedisPatchSchedule::createClassInfo(), $apiRequest);
     }

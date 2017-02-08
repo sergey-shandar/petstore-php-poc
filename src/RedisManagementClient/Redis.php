@@ -33,7 +33,6 @@ class Redis
         $apiRequest->method = 'Put';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         return $this->apiClient->request(RedisResource::createClassInfo(), $apiRequest);
     }
@@ -53,7 +52,6 @@ class Redis
         $apiRequest->method = 'Patch';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         return $this->apiClient->request(RedisResource::createClassInfo(), $apiRequest);
     }
@@ -71,7 +69,6 @@ class Redis
         $apiRequest->method = 'Delete';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -90,7 +87,6 @@ class Redis
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(RedisResource::createClassInfo(), $apiRequest);
     }
@@ -108,7 +104,6 @@ class Redis
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(RedisListResult::createClassInfo(), $apiRequest);
     }
@@ -125,7 +120,6 @@ class Redis
         $apiRequest->method = 'Get';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(RedisListResult::createClassInfo(), $apiRequest);
     }
@@ -144,7 +138,6 @@ class Redis
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = null;
         return $this->apiClient->request(RedisAccessKeys::createClassInfo(), $apiRequest);
     }
@@ -164,7 +157,6 @@ class Redis
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         return $this->apiClient->request(RedisAccessKeys::createClassInfo(), $apiRequest);
     }
@@ -183,7 +175,6 @@ class Redis
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -202,7 +193,6 @@ class Redis
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
@@ -221,7 +211,6 @@ class Redis
         $apiRequest->method = 'Post';
         $apiRequest->queryParameters = ['apiVersion' => $apiVersion];
         $apiRequest->headerParameters = [];
-        $apiRequest->contentType = 'application/json; charset=utf-8';
         $apiRequest->body = $parameters;
         $this->apiClient->request(\RestApiCore\Type\PrimitiveType::create(), $apiRequest);
     }
